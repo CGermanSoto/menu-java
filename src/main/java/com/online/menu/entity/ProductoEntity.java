@@ -21,6 +21,12 @@ public class ProductoEntity {
     @Column(name = "categoria")
     private String categoria;
 
+    @Column(name="precio")
+    private float precio;
+
+    @Column(name="imagen")
+    private byte[] imagen;
+
     public Long getProductoId() {
         return productoId;
     }
