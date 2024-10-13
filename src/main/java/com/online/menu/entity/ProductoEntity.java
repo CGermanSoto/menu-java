@@ -53,4 +53,20 @@ public class ProductoEntity {
 
     public String getDescripcion() {return descripcion;}
     public void setDescripcion(String descripcion) {this.descripcion = descripcion;}
+
+    public float getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(float precio) {
+        this.precio = precio;
+    }
+
+    public byte[] getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(byte[] imagen) {
+        this.imagen = imagen;
+    }
 }

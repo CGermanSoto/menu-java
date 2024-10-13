@@ -20,6 +20,9 @@ public class ProductoController {
         ProductoEntity nuevoProducto = new ProductoEntity();
         nuevoProducto.setNombre(productoEntity.getNombre());
         nuevoProducto.setCategoria(productoEntity.getCategoria());
+        nuevoProducto.setDescripcion(productoEntity.getDescripcion());
+        nuevoProducto.setImagen(productoEntity.getImagen());
+        nuevoProducto.setPrecio(productoEntity.getPrecio());
 
         this.iProductService.guardarProducto(nuevoProducto);
     }
