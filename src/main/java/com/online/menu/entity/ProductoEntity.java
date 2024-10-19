@@ -7,6 +7,9 @@ import jakarta.persistence.*;
 @Table(name="producto")
 public class ProductoEntity {
 
+    @Transient
+    private String imagenBase64;
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id_producto")
@@ -22,10 +25,11 @@ public class ProductoEntity {
     private String categoria;
 
     @Column(name="precio")
-    private float precio;
+    private Double precio;
 
     @Column(name="imagen")
     private byte[] imagen;
+
 
     public Long getProductoId() {
         return productoId;
@@ -54,11 +58,11 @@ public class ProductoEntity {
     public String getDescripcion() {return descripcion;}
     public void setDescripcion(String descripcion) {this.descripcion = descripcion;}
 
-    public float getPrecio() {
+    public Double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(float precio) {
+    public void setPrecio(Double precio) {
         this.precio = precio;
     }
 
@@ -68,5 +72,13 @@ public class ProductoEntity {
 
     public void setImagen(byte[] imagen) {
         this.imagen = imagen;
+    }
+
+    public String getImagenBase64() {
+        return imagenBase64;
+    }
+
+    public void setImagenBase64(String imagenBase64) {
+        this.imagenBase64 = imagenBase64;
     }
 }

@@ -26,11 +26,12 @@ public class ProductoServiceImpl implements IProductService {
 
     @Override
     public void editarProducto(ProductoEntity producto) {
-        ProductoEntity productoEditable = this.iProductoDaoHbn.findById(producto.getProductoId())
-                .orElseThrow(() -> new RuntimeException("Producto no encontrado"));
-        productoEditable.setNombre(producto.getNombre());
-        productoEditable.setCategoria(producto.getCategoria());
-        this.iProductoDaoHbn.save(productoEditable);
+//        ProductoEntity productoEditable = this.iProductoDaoHbn.findById(producto.getProductoId())
+//                .orElseThrow(() -> new RuntimeException("Producto no encontrado"));
+//        if(productoEditable == null){
+//            productoEditable = producto;
+//        }
+        this.iProductoDaoHbn.save(producto);
     }
 
 
