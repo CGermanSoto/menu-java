@@ -56,7 +56,7 @@ public class ProductoController {
 
             return ResponseEntity.ok(productos);
         } catch (Exception e) {
-            logger.info("Error en servicio rest /getAllProducts: " + e);
+            logger.info("Error en servicio rest/getAllProducts: " + e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(Collections.emptyList());
         }
