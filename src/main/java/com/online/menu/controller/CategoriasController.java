@@ -18,12 +18,12 @@ public class CategoriasController {
         this.iCategoriaService.nuevaCategoria(categoria);
     }
 
-    @PutMapping("/modificar-categoria")
+    @PutMapping("/editar-categoria")
     private void modificarCategoria(@RequestBody CategoriaEntity categoria){
         this.iCategoriaService.editarCategoria(categoria);
     }
 
-    @GetMapping("/traer-categorias")
+    @GetMapping("/categorias")
     private List<CategoriaEntity> getAllCategorias(){
         return this.iCategoriaService.getAllCategorias();
     }
