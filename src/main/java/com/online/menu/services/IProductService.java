@@ -14,6 +14,9 @@ public interface IProductService {
     List<ProductoEntity> listaProductos();
 
     @Transactional
+    List<ProductoEntity> listaProductosPorCategoria(String categoria);
+
+    @Transactional
     void editarProducto(ProductoEntity producto);
 
     @Transactional

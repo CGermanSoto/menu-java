@@ -62,6 +62,26 @@ public class ProductoController {
         }
     }
 
+    @GetMapping("/productos")
+    public ResponseEntity<List<ProductoEntity>> getAllProductsById(@RequestParam Long id) {
+        try {
+            List<ProductoEntity> productos = iProductService.listaProductosPorId(id);
+
+            for (ProductoEntity producto : productos) {
+                if (producto.getImagen() != null) {
+                    String imagenBase64 = Base64.getEncoder().encodeToString(producto.getImagen());
+                    producto.setImagenBase64(imagenBase64);
+                }
+            }
+
+            return ResponseEntity.ok(productos);
+        } catch (Exception e) {
+            logger.info("Error en servicio rest/getAllProducts: " + e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(Collections.emptyList());
+        }
+    }
+
     @PutMapping("/editar-producto")
     public void editarProducto(@RequestBody ProductoEntity producto){
         this.iProductService.editarProducto(producto);

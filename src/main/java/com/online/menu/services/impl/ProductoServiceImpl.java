@@ -6,6 +6,7 @@ import com.online.menu.services.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -25,12 +26,22 @@ public class ProductoServiceImpl implements IProductService {
     }
 
     @Override
+    public List<ProductoEntity> listaProductosPorCategoria(String categoria) {
+        return null;
+    }
+
+//    @Override
+//    public List<ProductoEntity> listaProductosPorCategoria(String categoria){
+////        return this.iProductoDaoHbn.findAllById(categoria);
+//    }
+
+    @Override
     public void editarProducto(ProductoEntity producto) {
-//        ProductoEntity productoEditable = this.iProductoDaoHbn.findById(producto.getProductoId())
-//                .orElseThrow(() -> new RuntimeException("Producto no encontrado"));
-//        if(productoEditable == null){
-//            productoEditable = producto;
-//        }
+        ProductoEntity productoEditable = this.iProductoDaoHbn.findById(producto.getProductoId())
+                .orElseThrow(() -> new RuntimeException("Producto no encontrado"));
+        if(productoEditable == null){
+            productoEditable = producto;
+        }
         this.iProductoDaoHbn.save(producto);
     }
 
